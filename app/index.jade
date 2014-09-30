@@ -1,0 +1,16 @@
+doctype html
+html(ng-app="myApp")
+    head
+        title="ArnoldC Speaker"
+        base(href='/')
+        link(rel='stylesheet', href='css/bower.all.css')
+        link(rel='stylesheet', href='css/styles.css')
+        script(src='src/bower.all.js')
+        script(src='src/build.js')
+
+    body
+        block content
+            .container(ng-controller="SpeakerController")
+                h2 ArnoldC Speaker
+                hr
+                #editor.container
