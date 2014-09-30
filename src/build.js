@@ -1,0 +1,1 @@
+"use strict";function SpeakerController(){ace.edit("editor")}angular.module("myApp",["myApp.controllers"]),angular.module("myApp.controllers",[]),angular.module("myApp.controllers").controller("SpeakerController",SpeakerController),SpeakerController.$inject=["$scope"];
