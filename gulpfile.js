@@ -48,8 +48,9 @@ gulp.task('views', function(){
 
 gulp.task('bower', function(){
 
-    var jsFilter  = filter('**/*.js');
-    var cssFilter = filter('**/*.css');
+    var jsFilter   = filter('**/*.js');
+    var cssFilter  = filter('**/*.css');
+    var fontFilter = filter('**/*.+(svg|ttf|woff)');
 
     return gulp.src(bower(),{
         base: 'bower_components'
@@ -61,7 +62,11 @@ gulp.task('bower', function(){
     .pipe(jsFilter.restore())
     .pipe(cssFilter)
     .pipe(concat('bower.all.css'))
-    .pipe(gulp.dest(paths.destcss));
+    .pipe(gulp.dest(paths.destcss))
+    .pipe(cssFilter.restore())
+    .pipe(fontFilter)
+    .pipe(gulp.dest(paths.dest+"/fonts/"));
+
 });
 
 gulp.task('server', ['default', 'watch'],function(){
