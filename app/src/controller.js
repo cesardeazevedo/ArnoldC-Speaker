@@ -10,7 +10,7 @@ function SpeakerController($scope, ngAudio)
 
     $scope.keywords = [
         'I LIED','NO PROBLEMO',
-        'BECAUSE I\'M GOING TO SAY PLEASE': 'BecauseImGoingToSay','BULLSHIT','YOU HAVE NO RESPECT FOR LOGIC',
+        'BECAUSE I\'M GOING TO SAY PLEASE', 'BecauseImGoingToSay','BULLSHIT','YOU HAVE NO RESPECT FOR LOGIC',
         'STICK AROUND','CHILL','GET UP','GET DOWN','YOU\'RE FIRED','HE HAD TO SPLIT',
         'I LET HIM GO','YOU ARE NOT YOU YOU ARE ME','LET OFF SOME STEAM BENNET',
         'CONSIDER THAT A DIVORCE','KNOCK KNOCK','LISTEN TO ME VERY CAREFULLY',
@@ -54,6 +54,6 @@ function SpeakerController($scope, ngAudio)
         ngAudio.load('audio/HereIsMyInvitation.mp3'),
         ngAudio.load('audio/EnoughTalk.mp3'),
         ngAudio.load('audio/WTFDidIDoWrong.mp3')
-        ]
+        ];
 }
 
