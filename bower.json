@@ -23,17 +23,24 @@
     "angular": "~1.2.25",
     "bootstrap": "~3.2.0",
     "jquery": "~2.1.1",
-    "ace": "~1.1.7"
+    "ace": "~1.1.7",
+    "angular-audio": "*"
   },
   "overrides": {
     "angular": {
       "main": "angular.min.js"
     },
+    "angular-audio": {
+      "main": "angular.audio.js"
+    },
     "bootstrap": {
       "main": [
         "dist/js/bootstrap.min.js",
         "dist/css/bootstrap.min.css",
-        "dist/css/bootstrap-theme.min.css"
+        "dist/css/bootstrap-theme.min.css",
+        "**/glyphicons-halflings-regular.ttf",
+        "**/glyphicons-halflings-regular.woff",
+        "dist/fonts/glyphicons-halflings-regular.woff"
       ]
     },
     "jquery": {

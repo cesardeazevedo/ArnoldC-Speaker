@@ -10,8 +10,14 @@ html(ng-app="myApp")
 
     body
         block content
+            #fill
             .container(ng-controller="SpeakerController")
-                h2 ArnoldC Speaker
+                .page-header
+                    h1 ArnoldC Speaker 
+                        small
+                            | Emotion for ArnoldC Language
+                        a(href="https://github.com/cesardeazevedo/ArnoldC-Speaker", target="_BLANK", alt="hue")
+                            image.github.pull-right(src="images/GitHub-Mark-64px.png", alt="Github Project")
+                arnoldc-Editor(file="helloworld.arnoldc", title="Hello World", height="200px")
                 hr
-                h5 Play Script
-                #editor.container
+                arnoldc-Editor(file="factorial.arnoldc", title="Factorial", height="500px")

@@ -1,0 +1,24 @@
+{
+  "name": "angular-audio",
+  "description": "Total awesomeness for playing sounds in AngularJS",
+  "main": "angular.audio.js",
+  "homepage": "http://danielstern.github.io/ngAudio/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/danielstern/ngAudio.git"
+  },
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "angular": "~1.2.23",
+    "angular-ui-router": "~0.2.11"
+  },
+  "_release": "d5a47c88fe",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "d5a47c88fef47f4c5ae6de7ab804744df9e98b90"
+  },
+  "_source": "git://github.com/danielstern/ngAudio.git",
+  "_target": "*",
+  "_originalSource": "angular-audio"
+}

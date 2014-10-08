@@ -1,0 +1,6 @@
+.panel.panel-default
+    .panel-heading.inline-block
+        img.PlayBtn(ng-src="images/{{audio.paused ? 'play.png' : 'pause.png'}}", ng-click="audio.paused ? PlayAll() : audio.restart()")
+        .panel-title {{title}}
+    .panel-body
+        #editor

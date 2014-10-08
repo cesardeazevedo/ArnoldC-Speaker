@@ -1,0 +1,4 @@
+def add (a: Int): Int -> a * a
+defun add (a: Int): Int -> a * a
+add (a: Int): Int -> a * a
+5+5
