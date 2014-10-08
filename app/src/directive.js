@@ -3,13 +3,12 @@ directive('arnoldcEditor', ['ngAudio', 'ArnoldCService', function(ngAudio, Arnol
     return {
         restrict: 'E',
         replace: true,
-        templateUrl: '../editor.html',
+        templateUrl: 'editor.html',
         scope: {
             file:   '@',
             title:  '@',
             height: '@'
         },
-        transclude: true,
         link: function(scope, element, attr){
 
             scope.audio = ArnoldC.audios[0];
@@ -39,26 +38,26 @@ directive('arnoldcEditor', ['ngAudio', 'ArnoldCService', function(ngAudio, Arnol
                     return;
 
                 $scope.Index = 0;
-                $scope.GoToLine($scope.playList[$scope.Index].line);
-                $scope.PlaySound(ArnoldC.audios[$scope.playList[$scope.Index].key]);
-            },
-
-            $scope.PlaySound = function(audio){
-                $scope.audio = audio;
-                $scope.audio.play();
-                $scope.audio.audio.addEventListener('ended', $scope.Next);
+                gotoLine($scope.playList[$scope.Index].line);
+                playSound(ArnoldC.audios[$scope.playList[$scope.Index].key]);
             };
 
-            $scope.Next = function(){
+            var playSound = function(audio){
+                $scope.audio = audio;
+                $scope.audio.play();
+                $scope.audio.audio.addEventListener('ended', next);
+            };
+
+            var next = function(){
                 if($scope.Index >= $scope.playList.length-1)
                     return;
 
                 $scope.Index++;
-                $scope.editor.gotoLine($scope.playList[$scope.Index].line,0,true);
-                $scope.PlaySound(ArnoldC.audios[$scope.playList[$scope.Index].key]);
+                gotoLine($scope.playList[$scope.Index].line,0,true);
+                playSound(ArnoldC.audios[$scope.playList[$scope.Index].key]);
             };
 
-            $scope.GoToLine = function(line){
+            var gotoLine = function(line){
                 $scope.editor.gotoLine(line,0,true);
             };
         }]

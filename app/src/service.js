@@ -3,6 +3,9 @@ service('ArnoldCService',['$http','ngAudio', function($http, ngAudio) {
 
     var baseUrl = "src/arnoldc/";
 
+    /*
+     * ArnoldC Keywords
+     */
     var keywords = [
         'I LIED',
         'NO PROBLEMO',
@@ -39,6 +42,9 @@ service('ArnoldCService',['$http','ngAudio', function($http, ngAudio) {
         'WHAT THE FUCK DID I DO WRONG'
     ];
 
+    /*
+     * Load keywords sounds
+     */
     this.audios = [
         ngAudio.load('audio/ILied.mp3'),
         ngAudio.load('audio/NoProblemo.mp3'),
@@ -84,7 +90,7 @@ service('ArnoldCService',['$http','ngAudio', function($http, ngAudio) {
     };
 
     /*
-     * parser a arnoldc script, and extract a audio of keyword
+     * parser a arnoldc script and extract a keyword sound
      */
     this.Parser = function(script){
 
