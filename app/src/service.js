@@ -81,6 +81,8 @@ service('ArnoldCService',['$http','ngAudio', function($http, ngAudio) {
         ngAudio.load('audio/WTFDidIDoWrong.mp3')
     ];
 
+    this.audio = this.audios[0];
+
     this.Keywords = function(index){
         return !index ? keywords : keywords[index];
     };
@@ -100,7 +102,7 @@ service('ArnoldCService',['$http','ngAudio', function($http, ngAudio) {
 
             for(var KeyIndex in this.Keywords()) {
                 if(new RegExp(this.Keywords(KeyIndex)+'\\b').test(line)) {
-                    array.push({ line: i + 1, key: KeyIndex });
+                    array.push({ line: i + 1, keyword: this.Keywords(KeyIndex) ,key: KeyIndex });
                     break;
                 }
             }

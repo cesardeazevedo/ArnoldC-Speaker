@@ -1,6 +1,8 @@
 .panel.panel-default
     .panel-heading.inline-block
-        img.PlayBtn(ng-src="images/{{audio.paused ? 'play.png' : 'pause.png'}}", ng-click="audio.paused ? PlayAll() : audio.restart()")
+        img.PlayBtn(ng-src="images/{{isPaused() ? 'play.png' : 'pause.png'}}", ng-click="isPaused() ? PlayAll() : Stop()")
         .panel-title {{title}}
+    .progress
+        .progress-bar.progress-bar-striped.active(role="progressbar",  aria-valuemin="0", aria-valuemax="100" ng-style="{ 'width': (progress+'%'), 'height': '2px'}")
     .panel-body
         #editor
