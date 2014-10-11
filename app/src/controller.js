@@ -1,8 +1,10 @@
-angular.module('myApp.controllers', ['ngAudio']).
+angular.module('myApp.controllers', []).
 controller('SpeakerController', SpeakerController);
 
-SpeakerController.$inject = ['$scope','ngAudio'];
-function SpeakerController($scope, ngAudio, ArnoldC)
+SpeakerController.$inject = ['$scope', 'ArnoldCService'];
+function SpeakerController($scope, ArnoldC)
 {
+    $scope.getKeywords = function(){
+        return ArnoldC.keywords;
+    }
 }
-

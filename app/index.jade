@@ -1,3 +1,6 @@
+-repositoryUrl= "https://github.com/cesardeazevedo/ArnoldC-Speaker";
+-arnoldcUrl= "https://github.com/lhartikk/ArnoldC";
+
 doctype html
 html(ng-app="myApp")
     head
@@ -9,14 +12,50 @@ html(ng-app="myApp")
 
     body
         block content
-            #fill
+            .fill
+            header
+                .container.flex
+                    .col-md-6
+                        h1#title ARNOLDC-SPEAKER
+                            br
+                        h4#descrition
+                            span.label.label-danger Emotion for ArnoldC Language
+                    .col-md-6
+
+                        .media(style="text-align:right")
+                            a(href=repositoryUrl, target="_BLANK")
+                                image.github.pull-right(src="images/GitHub-Mark-64px.png", alt="Github Project")
+                            .media-body
+                                h3
+                                h4
+                                    a(href= arnoldcUrl, target="_BLANK")
+                                        span.label.label-danger ArnoldC Language
+                                    a(href= repositoryUrl, target="_BLANK")
+                                        span.label.label-danger See on GitHub
+                hr
             .container(ng-controller="SpeakerController")
-                .page-header
-                    h1 ArnoldC Speaker 
-                        small
-                            | Emotion for ArnoldC Language
-                        a(href="https://github.com/cesardeazevedo/ArnoldC-Speaker", target="_BLANK", alt="hue")
-                            image.github.pull-right(src="images/GitHub-Mark-64px.png", alt="Github Project")
                 arnoldc-Editor(file="helloworld.arnoldc", title="Hello World", height="200px")
                 hr
                 arnoldc-Editor(file="factorial.arnoldc", title="Factorial", height="500px")
+                hr
+                arnoldc-Editor(code="getKeywords()", title="All Keywords", height="600px")
+                hr
+                .row
+                    .col-md-4
+                    .col-md-4
+                            img.thumbnail(src="images/hastalavista.gif")
+                    .col-md-4
+        br
+        footer(role="navigation")
+            .container
+                    image.github(src="images/GitHub-Mark-64px.png", style="margin-left:15px", alt="Github Project")
+                    ul
+                        li
+                            a(href= repositoryUrl)
+                                span See on GitHub
+                        li
+                            | ·
+                        li
+                            a(href= arnoldcUrl)
+                                span ArnoldC Language
+        .fill

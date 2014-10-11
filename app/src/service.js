@@ -6,7 +6,7 @@ service('ArnoldCService',['$http','ngAudio', function($http, ngAudio) {
     /*
      * ArnoldC Keywords
      */
-    var keywords = [
+    this.keywords = [
         'I LIED',
         'NO PROBLEMO',
         'BECAUSE I\'M GOING TO SAY PLEASE',
@@ -84,7 +84,7 @@ service('ArnoldCService',['$http','ngAudio', function($http, ngAudio) {
     this.audio = this.audios[0];
 
     this.Keywords = function(index){
-        return !index ? keywords : keywords[index];
+        return !index ? this.keywords : this.keywords[index];
     };
 
     this.GetFile = function(name){

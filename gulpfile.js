@@ -21,7 +21,7 @@ var paths = {
     js:     'app/src/**/*.js',
     styl:   'app/styles/*.styl',
     audio:  'app/audio/*.mp3',
-    images: 'app/images/*.png',
+    images: 'app/images/*.+(png|gif)',
     jade:  'app/*.jade'
 }
 
@@ -29,7 +29,7 @@ gulp.task('scripts', function(){
     return gulp.src(paths.js)
     .pipe(jshint())
     .pipe(concat('build.js'))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest(paths.destjs))
     .pipe(connect.reload());
 });

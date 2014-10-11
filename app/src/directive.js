@@ -7,28 +7,36 @@ directive('arnoldcEditor', ['ngAudio', 'ArnoldCService', function(ngAudio, Arnol
         scope: {
             file:   '@',
             title:  '@',
-            height: '@'
+            height: '@',
+            text:   '&code'
         },
-        link: function(scope, element, attr){
-
-            ArnoldC.GetFile(scope.file).success(function(data){
-                scope.code = data;
+        link: function(scope, element, attr) {
+            scope.setEditor = function(code) {
+                var editor = element[0].querySelector('#editor');
+                editor.style.height = scope.height;
+                scope.editor = ace.edit(editor);
+                scope.editor.setFontSize(14);
+                scope.code = code;
                 scope.editor.setValue(scope.code);
                 scope.editor.clearSelection();
                 scope.editor.gotoLine(0,0,true);
-                scope.editor.on('change', function(e){
+                scope.editor.on('change', function(e) {
                     scope.$apply(function(){
                         scope.code = scope.editor.getValue();
                     });
                 });
-            });
+            }
 
-            var editor = element[0].querySelector('#editor');
-            editor.style.height = scope.height;
+            if(attr.file){
+                ArnoldC.GetFile(scope.file).success(function(data){
+                    scope.setEditor(data);
+                });
+            }
+            if(attr.code) {
+                scope.setEditor(scope.text().join('\n'));
+            }
 
-            scope.editor = ace.edit(editor);
-            scope.editor.setFontSize(14);
-        },controller: ['$scope', '$rootScope', function($scope, $rootScope){
+        },controller: ['$scope', '$rootScope', function($scope, $rootScope) {
 
             $scope.Stop = function(){
                 ArnoldC.audio.restart();
@@ -60,7 +68,7 @@ directive('arnoldcEditor', ['ngAudio', 'ArnoldCService', function(ngAudio, Arnol
 
             var next = function(){
                 if($scope.Index >= $scope.playList.length-1 ||
-                   $scope.$id != $rootScope.CurrentScope){
+                   $scope.$id != $rootScope.CurrentScope) {
                     $scope.progress = 0;
                     return;
                 }
@@ -74,7 +82,6 @@ directive('arnoldcEditor', ['ngAudio', 'ArnoldCService', function(ngAudio, Arnol
             var gotoLine = function(line){
                 $scope.editor.gotoLine(line,0,true);
             };
-
         }]
     }
 }]);

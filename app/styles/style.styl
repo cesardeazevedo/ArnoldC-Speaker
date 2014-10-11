@@ -1,12 +1,18 @@
 @import 'nib'
 
 body
-    background whitesmoke
+    background #FCFCFC
 
-#fill
+.fill
     background-color #353535
     width 100%
     height 4px
+
+#title
+    font-weight bold
+
+#descrition
+    margin-left 150px
 
 #editor
     position relative
@@ -24,6 +30,14 @@ body
     &:hover
         opacity 0.8
 
+.flex
+    display flex
+    flex-direction row
+    align-items center
+
+.label
+    margin-right 10px
+
 .panel
     .panel-body
         padding 0px!important
@@ -40,3 +54,16 @@ body
 .progress
     margin-bottom 0px
     height initial
+
+footer
+    border-top 1px solid #e5e5e5
+    text-align center
+    color #353535
+    height 140px
+    padding 30px
+    ul
+        margin-top 15px
+        li
+            color #888
+            display inline
+            padding 0 10px
